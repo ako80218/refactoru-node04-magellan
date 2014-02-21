@@ -1,4 +1,7 @@
 extends layout
 
 block content
-  h1 #{this.name}
+  h1 #{country.name}
+  p #{country.info}
+  img(src='#{country.image}') 
+  a(href="#{country.next}") next
