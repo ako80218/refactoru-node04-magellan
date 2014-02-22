@@ -1,4 +1,6 @@
 extends layout
 
 block content
-    a(href="/seville") Begin the Voyage
+    h1 #{title}
+    for user in users
+        a(href="/users/#{user.id}") Begin #{user.lastName}'s Voyage

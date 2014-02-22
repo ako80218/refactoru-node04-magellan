@@ -6,7 +6,6 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var homeController = require('./controllers/home.js');
 var usersController = require('./controllers/users.js');
 var countriesController = require('./controllers/countries.js');
 
@@ -28,10 +27,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
-app.get('/', homeController.index);
+var currentUser;
+app.get('/', usersController.index);
 app.get('/:webName', countriesController.index);
 app.get('/users', usersController.index);
+app.get('/users/:lastName/:webName', countriesController.index);
+app.get('/users/:id', function(req, res){
+    var id = parseInt(req.params.id);
+    console.log('id: ', id);
+    currentUser = usersController.findUser(id);
+    res.redirect('/users/'+ currentUser.lastName);
+});
+// app.get('/users/:lastName', function(req, res){
+//     res.render('bio', {
+//         user:currentUser
+//     });
+// });
+
 
 
 http.createServer(app).listen(app.get('port'), function(){
