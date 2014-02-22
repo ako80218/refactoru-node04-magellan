@@ -1,13 +1,13 @@
-
+var countriesModel= require('../models/countries.js');
 var userModel = require('../models/users.js');
-var countriesModel = require('../models/countries.js');
+console.log("find User: ", userModel.findUser(0));
 module.exports = {
     index:function(req, res){
         var webName = req.params.webName;
-        console.log('Countries model: ', countriesModel.findOne(webName));
-        res.render('index', {
-            title: 'Magellan\'s Voyage',
-            country: countriesModel.findOne(webName)
+        res.render('countries', {
+           title: 'Magellan\'s Voyage',
+            country: countriesModel.findOne(webName),
+            user: userModel.findUser(0)[0]
         });
     }
 }

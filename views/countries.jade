@@ -1,0 +1,14 @@
+extends layout
+block content
+    div.col-sm-3
+        h1.col-sm-12.small-header01 #{title}
+        img(src='#{user.image}' class='col-xs-12 main-image')
+        h1.col-sm-12.small-header01 #{user.name}
+        p.col-sm-12 Welcome to #{user.firstName}  #{user.lastName} 's Voyage 
+    div.col-sm-9
+        div.row
+            h1.col-sm-8 #{country.name}
+        div.row
+            img(src='#{country.image}' class='col-sm-4') 
+            p.col-sm-8 #{country.info}
+            a(href="#{country.next}") next

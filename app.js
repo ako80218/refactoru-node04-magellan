@@ -6,7 +6,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var indexController = require('./controllers/index.js');
+var homeController = require('./controllers/home.js');
 var usersController = require('./controllers/users.js');
 var countriesController = require('./controllers/countries.js');
 
@@ -29,11 +29,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', function(req, res) {
-    res.redirect('/seville');
-});
+app.get('/', homeController.index);
 app.get('/:webName', countriesController.index);
-
 app.get('/users', usersController.index);
 
 

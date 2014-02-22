@@ -2,10 +2,10 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-      h1= title
-      img(src='../images/magellan.gif')
-      h2 Ferdinand Magellan
-      p   Welcome to Magellan's Voyage
-      block content
+    img(id='map', class='map' src='images/map.jpg')
+    div.container-fluid
+      div.row.voyage-container
+          block content
