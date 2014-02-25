@@ -21,14 +21,6 @@ var users=[
 module.exports ={
     findAll: function(){
         return users.slice(0);
-    },
-    findUser:function(id){
-        return users.filter(function(user){
-             return user.id === id;
-        })
-    },
-    findCountry: function(){
-
     }
     // userLocation:function(){
     //     return utility.pluck(users, locationId)
