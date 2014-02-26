@@ -32,17 +32,14 @@ app.get('/', usersController.index);
 app.get('/:webName', countriesController.index);
 app.get('/users', usersController.index);
 app.get('/users/:lastName/:webName', countriesController.index);
-app.get('/users/:id', function(req, res){
-    var id = parseInt(req.params.id);
-    console.log('id: ', id);
-    currentUser = usersController.findUser(id);
-    res.redirect('/users/'+ currentUser.lastName);
+app.get('/users/:id', usersController.findUser);
+    
+app.get('/users/:lastName', function(req, res){
+    // res.render('bio', {
+    //     user:currentUser
+    // });
+	res.send("Conversion!!!")
 });
-// app.get('/users/:lastName', function(req, res){
-//     res.render('bio', {
-//         user:currentUser
-//     });
-// });
 
 
 
