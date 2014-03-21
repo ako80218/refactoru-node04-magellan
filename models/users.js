@@ -25,14 +25,17 @@ module.exports ={
     // userLocation:function(){
     //     return utility.pluck(users, locationId)
     // }
-    idFilter: function(idValue) {
+    idFilter: function(id) {
+        console.log("id: ", id);
             var allUsers=users.slice(0);
             console.log("allUsers: ", allUsers);
             var output = [];
-            for(var i=0; allUsers.length; i++) {
+            for(var i=0; i<allUsers.length; i++) {
                 console.log("allUsers["+ String(i)+"].id", allUsers[i].id);
-                if(allUsers[i].id === idValue){
+                if(allUsers[i].id === id){
                     output.push(allUsers[i]);
+                    console.log("match Found");
+                    console.log("output: ", output);
                 }
             }
             

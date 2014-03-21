@@ -13,6 +13,7 @@ module.exports = {
     },
     findUser:function(req, res){
         var id = parseInt(req.params.id);
+        // console.log("req.params.id: ", typeof parseInt(req.params.id));
         // filter(userModel.findAll(), function(user){
         //     // console.log('user.lastName', user.lastName); 
         //     if (user.id === id){
@@ -23,8 +24,9 @@ module.exports = {
         //     }
         
         // });
-console.log("userMOdel: ", userModel);
+
         var currentUser = userModel.idFilter(id);
+        console.log("userModel.idFilter(id): ", userModel.idFilter(id));
         
               res.redirect('/users/'+ currentUser.lastName);  
             
